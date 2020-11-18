@@ -258,7 +258,8 @@ public class JuegoAhorcado {
 			String[] vFallos) {
 
 		boolean encontrado = false;
-
+		
+		
 		for (int i = 0; i < vPalabraSecreta.length; i++) {
 			if (letra.equalsIgnoreCase(vPalabraSecreta[i])) {
 				vAciertos[i] = letra;
