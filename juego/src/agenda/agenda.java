@@ -132,7 +132,7 @@ public class agenda {
 			case 1:
 				System.out.println("añadir");
 
-//--------------------------------------------------------------------------------------guardar
+//---------------------------------------------------------------------------------------guardar
 				guardarContactos(mNombre);
 
 				interruptor = false;
@@ -141,7 +141,7 @@ public class agenda {
 			case 2:
 				System.out.println("mostrar");
 
-//--------------------------------------------------------------------------------------mostrar
+//---------------------------------------------------------------------------------------mostrar
 				mostrarContactos(mNombre);
 
 				interruptor = false;
@@ -150,7 +150,7 @@ public class agenda {
 			case 3:
 				System.out.println("aliminar");
 
-//-------------------------------------------------------------------------------------Eliminar
+//---------------------------------------------------------------------------------------Eliminar
 				eliminarContacto(mNombre, eliminar);
 
 				interruptor = false;

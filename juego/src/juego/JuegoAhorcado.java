@@ -3,6 +3,27 @@ package juego;
 import java.util.Scanner;
 
 public class JuegoAhorcado {
+	public static String palaras(String vPalabra[], String palabra) {
+
+		int aux = 10;
+		vPalabra = new String[aux];
+
+		Scanner leer = new Scanner(System.in);
+
+		for (int i = 0; i < vPalabra.length; i++) {
+			vPalabra[i] = "_";
+		}
+		for (int i = 0; i < vPalabra.length; i++) {
+			System.out.println("Dime unas palabras");
+			palabra = leer.next();
+			vPalabra[i] = palabra;
+		}
+		
+		
+
+		return palabra;
+	}
+
 	// Pinta el muñeco en pantalla dependiendo de las vidas
 	public static void dibujarMuneco(int vidas) {
 		switch (vidas) {
@@ -258,8 +279,7 @@ public class JuegoAhorcado {
 			String[] vFallos) {
 
 		boolean encontrado = false;
-		
-		
+
 		for (int i = 0; i < vPalabraSecreta.length; i++) {
 			if (letra.equalsIgnoreCase(vPalabraSecreta[i])) {
 				vAciertos[i] = letra;
@@ -267,7 +287,7 @@ public class JuegoAhorcado {
 			}
 
 		}
-		
+
 		if (encontrado == false) {
 			for (int i = 0; i < vFallos.length; i++) {
 				if (vFallos[i].equalsIgnoreCase("_")) {
@@ -281,31 +301,40 @@ public class JuegoAhorcado {
 		return vidas;
 	}
 
-	
 	public static boolean heGanado(String vAciertos[]) {
-		 
-		boolean comprobar=true;
-		
+
+		boolean comprobar = true;
+
 		for (int i = 0; i < vAciertos.length; i++) {
 			if (vAciertos[i].equals("_")) {
-				comprobar=false;
+				comprobar = false;
 				break;
-			}	
+			}
 		}
 		return comprobar;
 	}
-	
-	
+
 	public static void main(String[] args) {
 		// Vidas totales 7
 		Scanner leer = new Scanner(System.in);
 		int vidas = 8;
-		String palabraSecreta = "Juan";
+		String palabraSecreta = "";
 		String letra;
 		String vPalabraSecreta[], vAciertos[], vFallos[];
+
+		String vPalabra[];
+		String palabra = "";
+		int aux = 10;
+
+		vPalabra = new String[aux];
+
+		
+		
+		palaras(vPalabra, palabra);
+
 		vPalabraSecreta = new String[palabraSecreta.length()];
 		vAciertos = new String[palabraSecreta.length()];
-		vFallos = new String[vidas+1];
+		vFallos = new String[vidas + 1];
 		inicializarVectores(palabraSecreta, vPalabraSecreta, vAciertos, vFallos);
 		// Estructura general del juego
 		do {
@@ -319,11 +348,10 @@ public class JuegoAhorcado {
 			dibujarMuneco(vidas);
 			// 4º Dibujar aciertos y errores
 			dibujarAciertorErrores(vFallos, vAciertos);
-			
-			//5ºcomprobar si he ganado
-			
 
-		} while (vidas >= 0 && heGanado(vAciertos)==false );
+			// 5ºcomprobar si he ganado
+
+		} while (vidas >= 0 && heGanado(vAciertos) == false);
 
 	}
 
